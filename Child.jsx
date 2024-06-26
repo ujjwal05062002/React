@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
 
-export default class Child extends Component {
-
-
-    render() {
-        return (
+export default class Child extends Component{
+   sendData(){
+    let data = [
+        {id:1001, name:"Ujjwal", city:"Meerut", state:"Uttar Pradesh"},
+        {id:1002, name:"Kamal", city:"Faridabad", state:"Haryana"},
+        {id:1003, name:"Vimal", city:"Bariley", state:"Uttar Pradesh"},
+        {id:1004, name:"Gaurav", city:"Noida", state:"Uttar Pradesh"},
+        {id:1005, name:"Shaily", city:"Noida", state:"Uttar Pradesh"},
+        {id:1006, name:"Aviral", city:"MuzaffarNagar", state:"Uttar Pradesh"}
+    ]
+    this.props.getData(data )
+   }
+    render(){
+        return(
             <>
-                <h3>Child Component</h3>
-                <h3>Name : {this.props.name}</h3>
-                <h3>Id : {this.props.id}</h3>
-                <h3>Designation : {this.props.dsg}</h3>
+            <h2>Child Component</h2>
+            <button onClick={()=>this.sendData()}>Send Data to Parent</button>
             </>
         )
     }
