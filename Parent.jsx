@@ -1,49 +1,25 @@
-import React, { Component } from "react";
-import Child from "./Child";
+import React, { Component } from 'react';
+import Child from './Child';
 
 export default class Parent extends Component{
     constructor(){
         super()
-        this.state = {
-            data :[data]
-        }
-    }
-    getData(data){
-        this.setState({data:data})
+        this.data = [
+            {id:1001, name:"Ujjwal", city:"Meerut", state:"Uttar Pradesh"},
+            {id:1002, name:"Kamal", city:"Faridabad", state:"Haryana"},
+            {id:1003, name:"Vimal", city:"Bariley", state:"Uttar Pradesh"},
+            {id:1004, name:"Gaurav", city:"Noida", state:"Uttar Pradesh"},
+            {id:1005, name:"Shaily", city:"Noida", state:"Uttar Pradesh"},
+            {id:1006, name:"Aviral", city:"MuzaffarNagar", state:"Uttar Pradesh"}
+        ]
     }
     render(){
         return(
             <>
-            <h3>Class Component Lifting State Up Example</h3>
-            <h2>Parent Component</h2>
-            {
-                this.state.data.length ?
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Name</th>
-                            <th>City</th>
-                            <th>State</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            this.state.data.map((item, index)=>{
-                               return <tr>
-                                <td>{item.id}</td>
-                                <td>{item.name}</td>
-                                <td>{item.city}</td>
-                                <td>{item.state}</td>
-                               </tr> 
-                            })
-                        }
-                    </tbody>
-                </table>:
-                ""
-            }
-            <hr />
-            <Child />
+            <h3>Parent Component</h3>
+            <h4>Sending Data from Parent to Child</h4>
+
+            <Child  data={this.data} />
             </>
         )
     }
